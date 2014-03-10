@@ -5,13 +5,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Vector;
 
-/**
- * Created with IntelliJ IDEA.
- * User: HashEngineering
- * Date: 8/13/13
- * Time: 7:23 PM
- * To change this template use File | Settings | File Templates.
- */
 public class CoinDefinition {
 
 

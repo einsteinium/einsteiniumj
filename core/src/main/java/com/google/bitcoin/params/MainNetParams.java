@@ -48,7 +48,7 @@ public class MainNetParams extends NetworkParameters {
         String genesisHash = genesisBlock.getHashAsString();
         checkState(genesisHash.equals(CoinDefinition.genesisHash),
                 genesisHash);
-        //TODO:  Need Checkpoints from FRK
+        //TODO:  Need Checkpoints from EMC2
         // This contains (at a minimum) the blocks which are not BIP30 compliant. BIP30 changed how duplicate
         // transactions are handled. Duplicated transactions could occur in the case where a coinbase had the same
         // extraNonce and the same outputs but appeared at different heights, and greatly complicated re-org handling.
