@@ -30,7 +30,6 @@ LOCAL_MODULE    := kgw
 LOCAL_SRC_FILES := kgw.cpp mini-gmp.c
 
 LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
+LOCAL_CFLAGS += -Ofast
 
 include $(BUILD_SHARED_LIBRARY)
-
-
