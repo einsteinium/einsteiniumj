@@ -48,8 +48,8 @@ public class BuildCheckpoints {
             @Override
             public void notifyNewBestBlock(StoredBlock block) throws VerificationException {
                 int height = block.getHeight();
-                if (height % params.getInterval() == 0 &&
-                        block.getHeader().getTimeSeconds() <= oneMonthAgo
+                if (height % params.getInterval() == 0 
+                    //   &&  block.getHeader().getTimeSeconds() <= oneMonthAgo
                         && block.getHeight() < CoinDefinition.nDifficultySwitchHeight) {
                     System.out.println(String.format("Checkpointing block %s at height %d",
                             block.getHeader().getHash(), block.getHeight()));

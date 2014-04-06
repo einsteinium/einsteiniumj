@@ -62,7 +62,7 @@ public class MainNetParams extends NetworkParameters {
         //checkpoints.put(91880, new Sha256Hash("00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721"));
         //checkpoints.put(200000, new Sha256Hash("000000000000034a7dedef4a161fa058a2d67a173a90155f3a2fe6fc132e0ebf"));
         //TODO disbale check point
-        //CoinDefinition.initCheckpoints(checkpoints);
+        // CoinDefinition.initCheckpoints(checkpoints);
 
         dnsSeeds = CoinDefinition.dnsSeeds;
     }

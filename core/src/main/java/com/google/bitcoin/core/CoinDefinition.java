@@ -94,7 +94,7 @@ public class CoinDefinition {
 
 
 
-        public static int nDifficultySwitchHeight = 26754;     //main.cpp: GetNextWorkRequired //EMC2, use KGW
+        public static int nDifficultySwitchHeight = 56000;     //main.cpp: GetNextWorkRequired //EMC2, use KGW
 
 
         public static final boolean usingNewDifficultyProtocol(int height)
