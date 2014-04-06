@@ -67,6 +67,9 @@ public abstract class NetworkParameters implements Serializable {
     protected int p2shHeader;
     protected int dumpedPrivateKeyHeader;
     protected int interval;
+    protected int newInterval;
+    protected int newTargetTimespan;
+    protected int diffChangeTarget;
     protected int targetTimespan;
     protected byte[] alertSigningKey;
 
@@ -140,8 +143,10 @@ public abstract class NetworkParameters implements Serializable {
 
 
     public static final int TARGET_TIMESPAN = CoinDefinition.TARGET_TIMESPAN;//14 * 24 * 60 * 60;  // 2 weeks per difficulty cycle, on average.
+    public static final int TARGET_TIMESPAN_NEW = (int)(60);  // 60s per difficulty cycle, on average. Kicks in after block 56k.
     public static final int TARGET_SPACING = CoinDefinition.TARGET_SPACING;// 10 * 60;  // 10 minutes per block.
     public static final int INTERVAL = CoinDefinition.INTERVAL;//TARGET_TIMESPAN / TARGET_SPACING;
+    public static final int INTERVAL_NEW = TARGET_TIMESPAN_NEW / TARGET_SPACING;
     
     /**
      * Blocks with a timestamp after this should enforce BIP 16, aka "Pay to script hash". This BIP changed the
@@ -308,6 +313,17 @@ public abstract class NetworkParameters implements Serializable {
         return targetTimespan;
     }
 
+     /**
+
+     * How much time in seconds is supposed to pass between "interval" blocks. If the actual elapsed time is
+     * significantly different from this value, the network difficulty formula will produce a different value. Both
+     * test and production Bitcoin networks use 2 weeks (1209600 seconds).
+     */
+    public int getNewTargetTimespan() {
+        return newTargetTimespan;
+    }
+
+
     /**
      * The version codes that prefix addresses which are acceptable on this network. Although Satoshi intended these to
      * be used for "versioning", in fact they are today used to discriminate what kind of data is contained in the
@@ -327,6 +343,18 @@ public abstract class NetworkParameters implements Serializable {
     /** How many blocks pass between difficulty adjustment periods. Bitcoin standardises this to be 2015. */
     public int getInterval() {
         return interval;
+    }
+
+
+
+    /** How many blocks pass between difficulty adjustment periods. After new diff algo. */
+    public int getNewInterval() {
+	return newInterval;
+    }
+
+    /** Target for switch to new diff algo */
+    public int getDiffChangeTarget() {
+        return diffChangeTarget;
     }
 
     /** What the easiest allowable proof of work should be. */

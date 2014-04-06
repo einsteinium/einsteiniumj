@@ -30,7 +30,9 @@ public class MainNetParams extends NetworkParameters {
     public MainNetParams() {
         super();
         interval = INTERVAL;
+	newInterval = INTERVAL_NEW;
         targetTimespan = TARGET_TIMESPAN;
+	newTargetTimespan = TARGET_TIMESPAN_NEW;
         proofOfWorkLimit = CoinDefinition.proofOfWorkLimit;
         dumpedPrivateKeyHeader = 128 + CoinDefinition.AddressHeader;
         addressHeader = CoinDefinition.AddressHeader;
@@ -45,6 +47,7 @@ public class MainNetParams extends NetworkParameters {
         id = ID_MAINNET;
         subsidyDecreaseBlockCount = CoinDefinition.subsidyDecreaseBlockCount;
         spendableCoinbaseDepth = CoinDefinition.spendableCoinbaseDepth;
+	diffChangeTarget = 56000;
         String genesisHash = genesisBlock.getHashAsString();
         checkState(genesisHash.equals(CoinDefinition.genesisHash),
                 genesisHash);
